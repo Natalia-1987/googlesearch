@@ -1,30 +1,16 @@
 package google;
 
-import common.PropertyHelper;
-import org.junit.After;
+import common.BaseTest;
 import org.junit.Assert;
-import org.junit.Before;
-
 import org.junit.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import pageobject.google.GoogleSearchPage;
+import pageobject.google.GoogleSearchResultsPage;
+import pageobject.rozetka.RozetkaMainPage;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
-public class GoogleTestsSuite {
+public class GoogleTestsSuite extends BaseTest {
 
-    private WebDriver webDriver;
-    private PropertyHelper propertyHelper = new PropertyHelper();
-
-    @Before
-    public void initDriver(){
-        System.setProperty("webdriver.chrome.driver", "chromedriver");
-        webDriver = new ChromeDriver();
-        webDriver.manage().window().maximize();
-
-    }
 
 //    @Test
 //    public void checkGoogleSiteTitle(){
@@ -34,11 +20,11 @@ public class GoogleTestsSuite {
 //    }
 
     @Test
-    public void verifyGoogleSearchFunctionality() {
+    public void verifyGooglePredictiveSearchFunctionality() {
 
         String googleUrl = propertyHelper.readProperty("google.site.url");
+
         webDriver.get(googleUrl);
-        webDriver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
         GoogleSearchPage searchPage = new GoogleSearchPage(webDriver);
 
@@ -52,9 +38,23 @@ public class GoogleTestsSuite {
         });
     }
 
-    @After
-    public void shutDownDriver(){
-        webDriver.close();
-        webDriver.quit();
+    @Test
+    public void verifyGoogleSearch(){
+        String googleUrl = propertyHelper.readProperty("google.site.url");
+
+        webDriver.get(googleUrl);
+
+        GoogleSearchPage googleSearchPage = new GoogleSearchPage(webDriver);
+
+        GoogleSearchResultsPage resultsPage = googleSearchPage.searchForWithEnter("rozetka");
+
+        String navUrl = resultsPage.getFirstUrl();
+
+        webDriver.get(navUrl);
+
+        RozetkaMainPage rozetkaMainPage = new RozetkaMainPage(webDriver);
+
+        Assert.assertEquals("There is incorrect title present, opened via first URL",
+                "Интернет магазин Rozetka.ua - №1", rozetkaMainPage.getHeaderLogoTitle());
     }
 }
