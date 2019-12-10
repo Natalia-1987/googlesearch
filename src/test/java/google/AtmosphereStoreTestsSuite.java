@@ -24,6 +24,7 @@ public class AtmosphereStoreTestsSuite extends BaseTest {
 
         ProductPage productPage = new ProductPage(webDriver);
 
+        parkas.setName(productPage.getProductName());
         parkas.setColor(productPage.getColor());
         parkas.setSize(productPage.clickRandomSize());
 
@@ -34,6 +35,7 @@ public class AtmosphereStoreTestsSuite extends BaseTest {
 
         CardPage cardPage = new CardPage(webDriver);
 
+        Assert.assertEquals("name is wrong", parkas.getName(), cardPage.getName());
         Assert.assertEquals("color is wrong", parkas.getColor(), cardPage.findProperty("colour"));
         Assert.assertEquals("size is wrong", parkas.getSize(), cardPage.findProperty("size"));
     }

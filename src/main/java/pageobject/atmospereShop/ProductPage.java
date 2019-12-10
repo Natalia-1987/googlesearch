@@ -14,6 +14,9 @@ public class ProductPage extends AbstractPage {
         super(webDriver);
     }
 
+    @FindBy (xpath = "//h1[@class='global-page-header__title']")
+    private WebElement title;
+
     @FindBy(xpath = "//div[@class='product-detail__color']/h3/span")
     private WebElement color;
 
@@ -28,6 +31,9 @@ public class ProductPage extends AbstractPage {
     @FindBy (xpath = "//div[contains(@class, 'header-cart')]/a")
     private WebElement cartIcon;
 
+    public String getProductName(){
+        return title.getText();
+    }
 
     public String getColor() {
         return color.getText();

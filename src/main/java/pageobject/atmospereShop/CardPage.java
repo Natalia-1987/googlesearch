@@ -14,11 +14,17 @@ public class CardPage extends AbstractPage {
         super(webDriver);
     }
 
+    @FindBy (xpath = "//a[@class='sc-product__title-link']")
+    private WebElement title;
+
     @FindBys({
             @FindBy(xpath = "//span[contains(@class, 'sc-product__property__value')]")
     })
     private List<WebElement> properties;
 
+    public String getName(){
+        return title.getText();
+    }
 
     public String findProperty(String propertyName){
         for (WebElement property : properties) {

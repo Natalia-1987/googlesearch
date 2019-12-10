@@ -3,6 +3,7 @@ package google;
 public class Parkas {
     private String color;
     private String size;
+    private String name;
 
     public String getColor() {
         return color;
@@ -20,11 +21,20 @@ public class Parkas {
         this.size = size;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return "Parkas{" +
                 "color='" + color + '\'' +
                 ", size='" + size + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 }
