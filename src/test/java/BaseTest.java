@@ -1,24 +1,22 @@
-package common;
-
+import lombok.Getter;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+@Getter
 public abstract class BaseTest {
 
-    protected WebDriver webDriver;
-    protected PropertyHelper propertyHelper = new PropertyHelper();
-
+    private WebDriver webDriver;
 
     @Before
-    public void initDriver() {
-        System.setProperty("webdriver.chrome.driver", "chromedrive r");
+    public void setUpDriver(){
+        System.setProperty("webdriver.chromedriver", "chromedriver");
         webDriver = new ChromeDriver();
     }
 
     @After
-    public void shutDownDriver() {
+    public void shutDownDriver(){
         webDriver.close();
         webDriver.quit();
     }
