@@ -13,7 +13,7 @@ public abstract class BaseTest {
 
     @Before
     public void initDriver() {
-        System.setProperty("webdriver.chrome.driver", "chromedrive r");
+        System.setProperty("webdriver.chrome.driver", "chromedriver");
         webDriver = new ChromeDriver();
     }
 
