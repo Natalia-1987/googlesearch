@@ -40,7 +40,7 @@ public class GoogleTestsSuite extends BaseTest {
 
     @Test
     public void verifyGoogleSearch(){
-        String googleUrl = propertyHelper.readProperty("google.site.url");
+        String googleUrl = propertyHelper.readProperty("site.url");
 
         webDriver.get(googleUrl);
 
