@@ -6,12 +6,12 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pageobject.AbstractPage;
 
-public class UkrNetArticleDetailspage extends AbstractPage {
+public class UkrNetArticleDetailsPage extends AbstractPage {
 
     @FindBy(xpath = "//h1")
     private WebElement articleHead;
 
-    public UkrNetArticleDetailspage(WebDriver webDriver) {
+    public UkrNetArticleDetailsPage(WebDriver webDriver) {
         super(webDriver);
     }
 
