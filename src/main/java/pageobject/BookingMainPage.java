@@ -16,7 +16,7 @@ public class BookingMainPage extends AbstractPage{
     @FindBy(xpath = "//div[@data-placeholder='Check-in']")
     private WebElement openCalendarButton;
 
-//
+
     @FindBy (xpath = "//button[contains(@class, 'sb-searchbox__button')]")
     private WebElement searchButton;
 
