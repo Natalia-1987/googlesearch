@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@PartialUrl(value = "mobile/chehly-sumki-futlyary-dlya-mobilnyh-i-smartfonov/71061-380639/")
+@PartialUrl(value = "/mobile/chehly-sumki-futlyary-dlya-mobilnyh-i-smartfonov/71061-380639/")
 public class HotlinePage extends AbstractPage{
 
     @FindBys({
