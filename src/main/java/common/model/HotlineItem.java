@@ -6,8 +6,13 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public class HotlineItem {
+public class HotlineItem implements Comparable<HotlineItem>{
 
     private String title;
     private Integer price;
+
+    @Override
+    public int compareTo(HotlineItem anotherItem){
+        return this.price - anotherItem.price;
+    }
 }
