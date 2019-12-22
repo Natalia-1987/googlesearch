@@ -3,7 +3,6 @@ package pageobject;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.FindBys;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import pageobject.panels.BookingCalendarPanel;
 
@@ -17,9 +16,10 @@ public class BookingMainPage extends AbstractPage{
     @FindBy(xpath = "//div[@data-placeholder='Check-in']")
     private WebElement openCalendarButton;
 
-    @FindBys({
-            @FindBy(xpath = "//span[@class='search_h1_name']")
-    })
+//
+    @FindBy (xpath = "//button[contains(@class, 'sb-searchbox__button')]")
+    private WebElement searchButton;
+
     private List<WebElement> predictiveSearchList;
 
 
