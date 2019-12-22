@@ -18,7 +18,7 @@ public class W3SchoolTestSuite extends BaseTest {
         W3SchoolMainPage w3SchoolMainPage = new W3SchoolMainPage(webDriver);
         w3SchoolMainPage.selectMenuItem();
 
-        String expectedColor =  "#4CAF50";
+        String expectedColor =  "rgba(76, 175, 80, 1)";
         String actualColor = w3SchoolMainPage.getSelectedMenuItemColor();
 
         Assert.assertEquals("There is incorrect selected menu item color", expectedColor, actualColor);
