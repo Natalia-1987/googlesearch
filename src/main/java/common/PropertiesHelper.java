@@ -5,12 +5,12 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
-public class PropertyHelper {
+public class PropertiesHelper {
 
     private static final String PROPERTY_FILE_PATH = "./src/main/resources/properties/environment.properties";
     private Properties properties;
 
-    public PropertyHelper(){
+    public PropertiesHelper(){
         properties = new Properties();
         try {
             File propertiesFile = new File(PROPERTY_FILE_PATH);

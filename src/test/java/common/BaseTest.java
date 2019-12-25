@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public abstract class BaseTest {
 
     protected WebDriver webDriver;
-    protected PropertyHelper propertyHelper = new PropertyHelper();
+    protected PropertiesHelper propertyHelper = new PropertiesHelper();
 
 
     @Before
