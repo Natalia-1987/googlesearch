@@ -12,7 +12,7 @@ public class HotlineItem implements Comparable<HotlineItem>{
     private Integer price;
 
     @Override
-    public int compareTo(HotlineItem anotherItem){
-        return this.price - anotherItem.price;
+    public int compareTo(HotlineItem other){
+        return price - other.getPrice();
     }
 }
