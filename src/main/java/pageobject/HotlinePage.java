@@ -2,6 +2,7 @@ package pageobject;
 
 import common.model.HotlineItem;
 import common.model.data.PartialUrl;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,14 +30,16 @@ public class HotlinePage extends AbstractPage{
 
     private WebDriver webDriver;
 
+    private Logger logger = Logger.getLogger(HotlinePage.class);
+
     public HotlinePage(WebDriver webDriver){
         super(webDriver);
         this.webDriver = webDriver;
     }
 
     public void orderBy(String text){
-        Select orderSelect = new Select(sortSelect);
-        orderSelect.selectByVisibleText(text);
+            Select orderSelect = new Select(sortSelect);
+            orderSelect.selectByVisibleText(text);
     }
 
     public List<HotlineItem> getHotlineProducts(){
