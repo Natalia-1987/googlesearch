@@ -39,7 +39,7 @@ public class HotlineTests extends BaseTest {
 
         Collections.sort(unsortedHotlineItemsList); // 1 - 2
 
-        unsortedHotlineItemsList.sort(Collections.reverseOrder()); // 2 - 1
+//        unsortedHotlineItemsList.sort(Collections.reverseOrder()); // 2 - 1
 
         hotlinePage.orderBy("возрастанию цены");
 
@@ -57,31 +57,13 @@ public class HotlineTests extends BaseTest {
         webDriver.get(url);
         HotlinePage hotlinePage = new HotlinePage(webDriver);
 
-        List<HotlineItem> unsortedHotlineItemsList = hotlinePage.getHotlineProducts();
-
-        Collections.sort(unsortedHotlineItemsList);
-
         hotlinePage.orderBy("возрастанию цены");
 
         List<HotlineItem> sortedHotlineItemsList = hotlinePage.getHotlineItemsUsingStreamApi();
 
-        HotlineItem firstExpected = unsortedHotlineItemsList.get(0);
+        HotlineItem firstExpected = sortedHotlineItemsList.get(0);
 
-        HotlineItem firstActual = new HotlineItem("Some tit  le", 455);
-
-        //HotlineItem firstActual = sortedHotlineItemsList.get(0);
-
-//        SoftAssertions softAssertions = new SoftAssertions();
-//
-//        softAssertions.assertThat(firstExpected.getTitle())
-//                .as("Expected title")
-//                .isEqualTo(firstActual.getTitle());
-//
-//        softAssertions.assertThat(firstExpected.getPrice())
-//                .as("Expected price")
-//                .isEqualTo(firstActual.getPrice());
-//
-//        softAssertions.assertAll();
+        HotlineItem firstActual = new HotlineItem("URBAN ARMOR GEAR iPhone 6/iPhone 6s/iPhone 7 Metropolis Folio Blue...", 755);
 
 
         Assert.assertEquals("There is incorrect title displayed", firstExpected.getTitle(), firstActual.getTitle());
