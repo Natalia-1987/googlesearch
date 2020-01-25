@@ -14,15 +14,17 @@ public class BookingMainPage extends AbstractPage{
     @FindBy(xpath = "//input[@id='ss']")
     private WebElement searchInput;
 
-    @FindBy(xpath = "//div[@data-placeholder='Check-in']")
+    @FindBy(xpath = "//div[@class='sb-date-field__display']")
     private WebElement openCalendarButton;
 
+    @FindBy(xpath = "//div[@class='bui-calendar']")
+    private WebElement calendarBlock;
 
     @FindBy (xpath = "//button[contains(@class, 'sb-searchbox__button')]")
     private WebElement searchButton;
 
     @FindBys({
-            @FindBy(xpath = "//span[@class='search_h1_name']")
+            @FindBy(xpath = "//span[@class='search_hl_name']")
     })
     private List<WebElement> predictiveSearchList;
 
@@ -43,7 +45,10 @@ public class BookingMainPage extends AbstractPage{
     };
 
     public BookingCalendarPanel openTravelingCalendar(){
-        //openCalendarButton.click();
+        String calendarStyle = calendarBlock.getAttribute("style");
+        if (calendarStyle.contains("display: none;")) {
+            openCalendarButton.click();
+        }
         return new BookingCalendarPanel(getWebDriver());
     }
 }

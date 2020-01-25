@@ -14,7 +14,7 @@ public class BookingCalendarPanel extends AbstractPage {
     @FindBy(xpath = "//div[@data-bui-ref='calendar-next']")
     private WebElement nextMonthButton;
 
-    @FindBy(xpath = "//div[@class='bui-calendar__wrapper'])[1]")
+    @FindBy(xpath = "//div[@class='bui-calendar__wrapper'][1]")
     private WebElement calendarMonth;
 
     public BookingCalendarPanel(WebDriver webDriver){
@@ -41,7 +41,7 @@ public class BookingCalendarPanel extends AbstractPage {
     }
 
     private void selectTravelMonthAndYear(String monthYear){
-        String monthNameLocator = "(.//div[@class='bui-calendar-month'])[1]";
+        String monthNameLocator = "//div[@class='bui-calendar__month'][1]";
         boolean isMonthNotFound = true;
 
         while (isMonthNotFound){

@@ -26,13 +26,13 @@ public class BookingTests extends BaseTest{
 
         bookingMainPage.typeTravelPlace("Milan");
         BookingCalendarPanel calendar = bookingMainPage.openTravelingCalendar();
-        calendar.selectTravelDate("20", "March 2020");
+        calendar.selectTravelDate("20", "Март 2020");
 
         BookingResultsPage bookingResultsPage = bookingMainPage.performSearch();
 
         String firstHotel = bookingResultsPage.getFirstAvailableHotelDestination();
 
-        Assert.assertEquals("There is incorrect first destination displayed!",
-                "Milan", firstHotel);
+        Assert.assertTrue("There is incorrect first destination displayed!",
+                firstHotel.contains("Милан"));
     }
 }
